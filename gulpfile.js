@@ -5,7 +5,11 @@ const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 
 function scripts() {
-    return src('./src/js/app.js')
+    return src([
+        './src/js/jquery-3.7.0.min.js',
+        './src/js/jquery.selectric.min.js',
+        './src/js/app.js',
+    ])
     .pipe(concat('scripts.min.js'))
     .pipe(uglify())
     .pipe(dest('./public/js'))

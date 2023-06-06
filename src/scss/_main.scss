@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  background: #fff;
+  font-weight: 400;
+  font-style: normal;
+  color: $font-color;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+p {
+  margin: 0 0 15vw * $px 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  text-decoration: underline;
+  color: $link-color;
+  &:hover {
+    color: #083644;
+  }
+}
