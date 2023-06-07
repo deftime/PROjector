@@ -12,6 +12,46 @@
   height: 100vh;
 }
 
+.selectric-wrapper {
+  .selectric {
+    border: 1px solid #EDEEF0;
+    border-radius: 4vw * $px;
+    background-color: #fff;
+    .label {
+      font-size: 16vw * $px;
+      line-height: 16vw * $px;
+      color: #6C7072;
+      background: none;
+      height: auto;
+      padding: 13vw * $px 0;
+      margin: 0 35vw * $px 0 10vw * $px;
+    }
+    .button {
+      background: none;
+      width: 43vw * $px;
+      height: 43vw * $px;
+      &:after {
+        border: none;
+        width: 15vw * $px;
+        height: 8vw * $px;
+        background-image: url('../img/arr-down.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        transition: 0.3s ease;
+      }
+    }
+  }
+  &.selectric-open {
+    .selectric {
+      border-color: #083644;
+      .button:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
 header {
   flex-shrink: 0;
   display: flex;
@@ -72,13 +112,18 @@ footer {
 
 .filters {
   flex-shrink: 0;
-  width: 300vw * $px;
+  width: 390vw * $px;
   padding: 20vw * $px;
   border-right: 3px solid #EDEEF0;
   fieldset {
     display: flex;
     gap: 12vw * $px;
     border: none;
+    margin-bottom: 12vw * $px;
+    width: 100%;
+    .selectric-wrapper {
+      flex: 1 0 45%;
+    }
   }
   input {
     display: block;
@@ -87,19 +132,52 @@ footer {
     background-color: #fff;
     height: 40vw * $px;
     width: 100%;
-    padding: 10vw * $px 15vw * $px;
+    padding: 10vw * $px 14vw * $px;
     font-size: 16vw * $px;
     line-height: 20vw * $px;
     color: #000;
     margin-bottom: 12vw * $px;
     &::placeholder {
+      font-family: 'Jakarta', sans-serif;
       color: #6C7072;
+      opacity: 1;
     }
     &:focus {
       outline: none;
       border-color: #083644;
-      border-width: 2px;
+      border-width: 1px;
     }
+  }
+  button {
+    font-family: 'Jakarta', sans-serif;
+    font-size: 16vw * $px;
+    line-height: 20vw * $px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 11vw * $px 25vw * $px 13vw * $px 25vw * $px;
+    margin-top: 12vw * $px;
+    border: 2px solid #083644;
+    border-radius: 4vw * $px;
+    background-color: #083644;
+    cursor: pointer;
+    &:hover:not([disabled]) {
+      background-color: #fff;
+      color: #083644;
+    }
+    &[disabled] {
+      background-color: gray;
+      border-color: gray;
+      cursor: not-allowed;
+    }
+  }
+  .error-mgs {
+    display: none;
+    font-size: 12vw * $px;
+    line-height: 15vw * $px;
+    color: red;
+    padding: 5vw * $px 0;
+    margin-top: -12vw * $px;
   }
 }
 
