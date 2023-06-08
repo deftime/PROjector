@@ -52,6 +52,35 @@
   }
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 2vw * $px;
+  padding: 20vw * $px 0;
+  div, a {
+    @extend %flexCenter;
+    font-family: 'Poppins', sans-serif;
+    width: 40vw * $px;
+    height: 40vw * $px;
+    border-radius: 8vw * $px;
+    font-size: 14vw * $px;
+    line-height: 20vw * $px;
+  }
+  div {
+    background-color: $brandColor;
+    color: #fff;
+  }
+  a {
+    background-color: #fff;
+    color: #738286;
+    text-decoration: none;
+    &:hover {
+      color: $brandColor;
+      text-decoration: underline;
+    }
+  }
+}
+
 header {
   flex-shrink: 0;
   display: flex;
@@ -114,7 +143,7 @@ footer {
   flex-shrink: 0;
   width: 390vw * $px;
   padding: 20vw * $px;
-  border-right: 3px solid #EDEEF0;
+  border-right: 2px solid #EDEEF0;
   fieldset {
     display: flex;
     gap: 12vw * $px;
@@ -183,5 +212,116 @@ footer {
 
 .list {
   flex-grow: 1;
+  padding: 20vw * $px;
+  .inner {
+    display: grid;
+    grid-template-columns: repeat(5, 275vw * $px);
+    gap: 20vw * $px;
+    overflow-y: auto;
+  }
+  .item {
+    color: $brandColor;
+    .pic {
+      position: relative;
+      border-radius: 8vw * $px;
+      width: 100%;
+      height: 275vw * $px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .fav-box {
+        @extend %flexCenter;
+        position: absolute;
+        top: 10vw * $px;
+        left: 10vw * $px;
+        width: 40vw * $px;
+        height: 40vw * $px;
+        background-color: #fff;
+        border-radius: 7vw * $px;
+        svg {
+          width: 30vw * $px;
+          height: auto;
+        }
+      }
+    }
+    .name {
+      @extend %oneLineCut;
+      font-size: 18vw * $px;
+      line-height: 23vw * $px;
+      font-weight: 700;
+      padding: 10vw * $px 0 5vw * $px 0;
+    }
+    .band {
+      @extend %oneLineCut;
+      font-size: 18vw * $px;
+      line-height: 23vw * $px;
+      font-weight: 500;
+      margin-bottom: 10vw * $px;
+    }
+    .album-data {
+      @extend %oneLineCut;
+      font-size: 18vw * $px;
+      line-height: 20vw * $px;
+      margin-bottom: 5vw * $px;
+      span:first-child {
+        color: #738286;
+      }
+    }
+    .add-btn {
+      @extend %flexCenter;
+      font-family: 'Jakarta', sans-serif;
+      border: 2px solid $brandColor;
+      border-radius: 7vw * $px;
+      background-color: $brandColor;
+      color: #fff;
+      font-size: 20vw * $px;
+      line-height: 25vw * $px;
+      font-weight: 500;
+      padding: 12vw * $px 20vw * $px;
+      margin-top: 15vw * $px;
+      width: 100%;
+      cursor: pointer;
+      svg {
+        width: 20vw * $px;
+        height: auto;
+        margin-left: 10vw * $px;
+        &.minus {
+          display: none;
+        }
+      }
+      &:hover {
+        background-color: #fff;
+        color: $brandColor;
+        svg path {
+          stroke: $brandColor;
+        }
+      }
+    }
+    &.favorite {
+      .fav-box {
+        svg path {
+          fill: #000;
+        }
+      }
+      .add-btn {
+        background-color: #fff;
+        color: $brandColor;
+        svg {
+          path {
+            stroke: $brandColor;
+          }
+          &.plus {
+            display: none;
+          }
+          &.minus {
+            display: block;
+          }
+        }
+      }
+    }
+  }
 }
 
