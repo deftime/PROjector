@@ -17,7 +17,7 @@ function initSelectric() {
 
 function checkForm() {
     let input = document.forms.search.elements.artist;
-    let errMsg = document.querySelector('.filters .error-mgs');
+    let errMsg = document.querySelector('.filters .error-msg');
     let btn = document.querySelector('.filters button');
 
     if (input) {
@@ -52,6 +52,9 @@ function checkFavorites() {
     let items = document.querySelectorAll('.list .item');
 
     for (let key of items) {
-        localStorage.getItem(key.id) ? key.classList.add('favorite') : undefined ;
+        if (localStorage.getItem(key.id)) {
+            key.classList.add('favorite');
+            key.querySelector('.js-favorites span').innerText = 'Remove';
+        }
     }
 }
